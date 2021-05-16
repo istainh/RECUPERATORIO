@@ -6,7 +6,7 @@
 #ifndef BIBLIOTECA_H_
 #define BIBLIOTECA_H_
 
-#define TAM 30
+#define TAM 51
 
 //Prototipos Validaciones
 
@@ -42,7 +42,7 @@ int obtenerId(int* flagId, int baseId, int* finalId);
 
 
 //Listar
-void descripcionPorInt(int* opcion, char* descripFinal, char* descripUno, char* descripDos, char* descripTres);
+int obtenerDescripcionPorInt(int opcion, char descripFinal[], int tamanio, char* descripUno, char* descripDos, char* descripTres);
 
 
 

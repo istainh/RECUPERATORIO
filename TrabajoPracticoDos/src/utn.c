@@ -1,4 +1,4 @@
-#include "Biblioteca.h"
+#include "utn.h"
 //Validaciones
 
 //Numeros enteros
@@ -306,23 +306,27 @@ int obtenerId(int* flagId, int baseId, int* finalId)
 
 //Listar
 
-void descripcionPorInt(int* opcion, char* descripFinal, char* descripUno, char* descripDos, char* descripTres)
+int obtenerDescripcionPorInt(int opcion, char descripFinal[], int tamanio, char* descripUno, char* descripDos, char* descripTres)
 {
+	int retorno=0;
 
-	if(opcion!=NULL&&descripFinal!=NULL&&descripUno!=NULL&&descripDos!=NULL&&descripTres!=NULL)
+	if(tamanio>0&&descripFinal!=NULL&&descripUno!=NULL&&descripDos!=NULL&&descripTres!=NULL)
 	{
-		switch (*opcion)
+		switch (opcion)
 		{
 			case 1:
-				strcpy(descripFinal, descripUno);
+				strncpy(descripFinal, descripUno, tamanio);
+				retorno=1;
 				break;
 
 			case 2:
-				strcpy(descripFinal, descripDos);
+				strncpy(descripFinal, descripDos, tamanio);
+				retorno=1;
 				break;
 
 			case 3:
-				strcpy(descripFinal, descripTres);
+				strncpy(descripFinal, descripTres, tamanio);
+				retorno=1;
 				break;
 		}
 	}
@@ -330,6 +334,8 @@ void descripcionPorInt(int* opcion, char* descripFinal, char* descripUno, char* 
 	{
 		printf("Error al mostrar descripción. Un dato es nulo. \n");
 	}
+
+	return retorno;
 }
 
 
